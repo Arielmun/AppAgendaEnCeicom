@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1090831245491",
+    "project_id": "appagenda-78355",
+    "storage_bucket": "appagenda-78355.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090831245491:android:a247e10f713042cd7cd0c6",
+        "android_client_info": {
+          "package_name": "com.arielmondev.agendaescolar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXsT9N7rtx-mPBNdTZblxjTp3Vk7F_Uoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

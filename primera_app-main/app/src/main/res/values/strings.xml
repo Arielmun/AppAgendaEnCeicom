@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">AgendaEscolar</string>
+
+
+    <!--SPLASHSCREEN-->
+    <string name="nombre_app">AGENDA TECNICA</string>
+    <string name="version_app">Version 1.0</string>
+    <string name="desarrollador">ArielmonDEV</string>
+    <!--LOGIN-->
+    <string name="login">Login de Acceso</string>
+    <string name="usuario">Usuario</string>
+    <string name="clave">Clave</string>
+    <string name="olvidaste_contraseña">Olvidaste tu contraseña</string>
+    <string name="sin_cuenta">No tienes cuenta?, Registrate!</string>
+    <string name="botonIngresar">Ingresar</string>
+    <string name="botonPaginaWeb">Sitio Web</string>
+
+
+    <!--CONTROLES GENERALES-->
+    <string name="nuevo">Nuevo</string>
+    <string name="editar">Editar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="eliminar">Eliminar</string>
+    <!--REGISTRO-->
+    <string name="titulo_registro">Registro Usuarios</string>
+    <string name="ingresardatos">Ingrese Datos</string>
+
+    <string name="nombre">Nombre</string>
+    <string name="ingrese_nombre">Ingrese Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="ingrese_apellido">Ingrese Apellido</string>
+    <string name="correo">Correo Electronico</string>
+    <string name="ingrese_correo">Ingrese Correo Electronico</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="ingrese_contraseña">Ingrese Contraseña</string>
+    <string name="carrera">Carrera</string>
+    <string name="ingrese_carrera">Ingrese Carrera</string>
+    <string name="tipo_de_usuario">Tipo de Usuario</string>
+
+    <string name="btnRegistrar">Registrar</string>
+    <string name="ir_al_login">Regresar al login</string>
+
+
+
+
+
+
+
+    <!--DASHBOARD-->
+
+</resources>

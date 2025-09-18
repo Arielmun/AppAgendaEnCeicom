@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/guindo1"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/ivlogo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cmlogo2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"/>
+    <ImageView
+        android:id="@+id/ivbanner"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:src="@drawable/bannerceicom"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/ivlogo2"/>
+
+    <TextView
+        android:id="@+id/tvtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_below="@+id/ivbanner"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+    
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_below="@+id/tvtitulo"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+                <EditText
+                    android:id="@+id/etusuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/usuario"
+                    android:background="@drawable/bg_white"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/white"
+                    android:inputType="textEmailAddress"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/clave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_below="@id/usuario"
+                app:passwordToggleEnabled="true">
+                <EditText
+                    android:id="@+id/etclave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/clave"
+                    android:textColorHint="@color/black"
+                    android:background="@drawable/bg_white"
+                    android:textColor="@color/white"
+
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tvOlvidasteC"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/clave"
+                android:text="@string/olvidaste_contraseña"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"/>
+            
+            <Button
+                android:id="@+id/btnIngresar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/tvOlvidasteC"
+                android:layout_marginTop="10dp"
+                android:text="@string/botonIngresar"
+                android:backgroundTint="@color/yellow2"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/btnSitioWeb"
+                android:layout_width="150dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/btnIngresar"
+                android:textColor="@color/black"
+                android:text="@string/botonPaginaWeb"
+                android:backgroundTint="@color/yellow2"/>
+
+            <TextView
+                android:id="@+id/tvSincuenta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnSitioWeb"
+                android:layout_marginTop="50dp"
+                android:text="@string/sin_cuenta"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        
+        
+        
+        
+        
+        
+        
+    </ScrollView>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
