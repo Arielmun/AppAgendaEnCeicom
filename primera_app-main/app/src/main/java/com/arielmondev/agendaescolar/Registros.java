@@ -1,5 +1,6 @@
 package com.arielmondev.agendaescolar;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -12,19 +13,35 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import org.checkerframework.common.reflection.qual.NewInstance;
 
 
 public class Registros extends AppCompatActivity {
 
     // Campos de registro
-    EditText etNombres, etApellidos, etCorreo, etClave;
+    EditText etNombres, etApellidos, etCorreo, etClave, etcarrera;
     Spinner spinnerTipoUsuario;
     Button btnRegistrar;
     TextView tvIrLogin;
 
+    // firebaseVariables
+    FirebaseAuth firebaseAuth ;
+    ProgressDialog progressDialog ;
+
+
     // Variables para guardar los datos
-    String nombres = "", apellidos = "", correo = "", contrasena = "", tipoUsuario = "";
+    String nombres = "", apellidos = "", correo = "", contrasena = "", tipoUsuario = "", carre = "";
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +51,23 @@ public class Registros extends AppCompatActivity {
         // Vincular vistas
         etNombres = findViewById(R.id.etNombresR);
         etApellidos = findViewById(R.id.etApellidosR);
-        etCorreo = findViewById(R.id.etcarrera);
+        etCorreo = findViewById(R.id.etCorreoR);
+        etcarrera = findViewById(R.id.etcarrera);
         etClave = findViewById(R.id.etContrasenaR);
         spinnerTipoUsuario = findViewById(R.id.spinner_tipo_usuario);
         btnRegistrar = findViewById(R.id.btnRegistrar);
         tvIrLogin = findViewById(R.id.tvIrLogin);
+
+        //firebase variables Inicializo
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        progressDialog = new ProgressDialog(Registros.this);
+        progressDialog.setTitle("Espere un momento Porfavor");
+        progressDialog.setCanceledOnTouchOutside(false);
+
+
+
+
 
         // Opciones para el Spinner
         String[] opciones = {"Estudiante", "Docente"};
@@ -82,23 +111,56 @@ public class Registros extends AppCompatActivity {
 
     // Función para validar datos y guardar en SQLite
     private void valiarDatos() {
+
+
         nombres = etNombres.getText().toString().trim();
         apellidos = etApellidos.getText().toString().trim();
         correo = etCorreo.getText().toString().trim();
+        carre = etcarrera.getText().toString().trim() ;
         contrasena = etClave.getText().toString().trim();
 
         if (TextUtils.isEmpty(nombres)) {
             Toast.makeText(this, "Nombre está vacío", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(apellidos)) {
             Toast.makeText(this, "Apellido está vacío", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(carre)) {
+            Toast.makeText(this, "carrera esta vacio", Toast.LENGTH_SHORT).show();
         } else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
             Toast.makeText(this, "Ingrese correo válido", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(contrasena) || contrasena.length() < 6) {
             Toast.makeText(this, "Contraseña necesita mínimo 6 caracteres", Toast.LENGTH_SHORT).show();
         } else {
-
-                Toast.makeText(this, "Error: el correo ya está registrado", Toast.LENGTH_SHORT).show();
+                registrar();
+                //Toast.makeText(this, "Registrado CORRECTAMENTE", Toast.LENGTH_SHORT).show();
             }
         }
+
+    private void registrar() {
+        progressDialog.setMessage("Registrando Usuario...");
+        progressDialog.show();
+
+        firebaseAuth.createUserWithEmailAndPassword(correo, contrasena)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        guardasUsuario();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(Registros.this, "ocurrio un error revisa los campos", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
+    //METODO succes LOGIN
+    private void guardasUsuario() {
+        progressDialog.setMessage("Guardando DATOS");
+        progressDialog.show();
+
+    }
+}
 
